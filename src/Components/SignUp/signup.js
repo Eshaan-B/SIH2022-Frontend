@@ -1,93 +1,53 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-
+import "./Signup.css";
 function SignUp() {
-  const orgs = ["Tamil Nadu", "Odisha", "Odisha Hockey", "TN Basketball"];
-  const ulEl = document.createElement("ul");
-  function showOrg(org) {
-    const html = ulEl.innerHTML;
-    ulEl.innerHTML = `
-        ${html}
-        <li>${org}</li>
-    `;
-  }
-
-  function showOrgs(e) {
-    // console.log(e.target.value);
-    const newOrg = orgs.filter((org) => org.includes(e.target.value));
-    const listEl = document.querySelector(".list");
-    listEl.innerHTML = ``;
-
-    if (newOrg.length > 0) {
-      console.log(newOrg);
-      //   const elem = newOrg.forEach((org) => )
-    }
-    ulEl.innerHTML = `
-        ${
-          newOrg.length > 0
-            ? newOrg.forEach((org) => showOrg(org))
-            : "<button>Add Your Org</button>"
-        }
-    `;
-    console.log(ulEl.innerHTML);
-
-    listEl.appendChild(ulEl);
-    // console.log(newOrg);
-  }
+  const orgs = [
+    { label: "Tamil Nadu" },
+    { label: "Odisha" },
+    { label: "Odisha Hockey" },
+    { label: "TN Basketball" },
+  ];
   return (
-    <div className="signup">
-      <h1>SignUp</h1>
-      <form>
-        <input
-          type="text"
-          autoComplete="off"
-          name=""
-          id=""
-          placeholder="First Name"
-          required
-        />
-        <input
-          type="text"
-          autoComplete="off"
-          name=""
-          id=""
-          placeholder="Last Name"
-          required
-        />
-        <input
-          type="email"
-          autoComplete="off"
-          placeholder="Organisation Email Id"
-          required
-        />
-        <input
-          type="password"
-          autoComplete="off"
-          placeholder="Password"
-          required
-        />
-        <input
-          type="text"
-          autoComplete="off"
-          placeholder="Aadhar Number"
-          required
-        />
-        <input
-          type="text"
-          autoComplete="off"
-          placeholder="Organisation Name"
-          required
-          onChange={(e) => showOrgs(e)}
-        />
+    <div className="container">
+      {/* <div className="row">
+            <div className="col-lg-3 col-md-2">
+                
+            </div>
+            <div className="col-lg-6 col-md-8 login-box">
+                <div className="col-lg-12 login-key">
+                    <i className="fa fa-key" aria-hidden="true" />
+                </div>
+                <div className="col-lg-12 login-title">
+                    ADMIN PANEL
+                </div>
 
-        <button>SignUp</button>
-      </form>
+                <div className="col-lg-12 login-form">
+                    <div className="col-lg-12 login-form">
+                        <form>
+                            <div class="form-group">
+                                <label class="form-control-label">USERNAME</label>
+                                <input type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-control-label">PASSWORD</label>
+                                <input type="password" class="form-control" i>
+                            </div>
 
-      <div className="list"></div>
-
-      <Link to={"/login"}>
-        <span>Log In instead?</span>
-      </Link>
+                            <div class="col-lg-12 loginbttm">
+                                <div class="col-lg-6 login-btm login-text">
+                                </div>
+                                <div class="col-lg-6 login-btm login-button">
+                                    <button type="submit" class="btn btn-outline-primary">LOGIN</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                
+                </div>
+                <div className="col-lg-3 col-md-2"></div>
+            </div>
+        </div>   */}
     </div>
   );
 }

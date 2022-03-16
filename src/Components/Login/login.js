@@ -3,18 +3,15 @@ import { Link, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
 import "./login.css";
 import * as ball_animation from "./61182-ball-sport.json";
+import "animate.css";
 
 function Login() {
-  /**
-   * The options array should contain objects.
-   * Required keys are "name" and "value" but you can have and use any number of key/value pairs.
-   */
   return (
     <div className="login">
-      <div className="image">
+      <div className="image animate__animated animate__fadeInRight">
         <Lottie animationData={ball_animation} />
       </div>
-      <div className="form-container">
+      <div className="form-container animate__animated animate__fadeInLeft">
         <h1>LogIn</h1>
         <form className="form">
           <input
