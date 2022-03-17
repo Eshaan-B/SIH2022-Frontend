@@ -21,13 +21,13 @@ function Signup() {
     e.preventDefault();
   }
   function updateEmail(e) {
-    setEmail(e.target.value);
+    setEmail("e.target.value");
   }
   function updateName(e) {
-    setName(e.target.value);
+    setName("e.target.value");
   }
   function updatePassword(e) {
-    setPass(e.target.value);
+    setPass("e.target.value");
   }
 
   //SEND END AS THE LAST submit parameter
