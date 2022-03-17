@@ -12,17 +12,20 @@ function About() {
             {/* <img src="assets/img/logo.png" alt=""> */}
             <h1>Khelo India<span>.</span></h1>
           </a>
-          <a className="btn-getstarted scrollto" href="index.html#about">Get Started</a>
+          <a className="btn-getstarted scrollto" href="index.html#about">Login</a>
         </div>
       </header>{/* End Header */}
       <section id="hero-animated" className="hero-animated d-flex align-items-center">
         <div className="container d-flex flex-column justify-content-center align-items-center text-center position-relative" data-aos="zoom-out">
           <img src="assets/img/hero-carousel/hero-carousel-3.svg" className="img-fluid animated" />
           <h2>Welcome to <span>Khelo India</span></h2>
-          <p>Et voluptate esse accusantium accusamus natus reiciendis quidem voluptates similique aut.</p>
+          <p>National Programme for Development of Sports.</p>
+
+          <p> <span className="sabka-colour">Sabka</span> Saath,  <span className="sabka-colour">Sabka</span> Vikas, <span className="sabka-colour">Sabka</span> Vishwas, <span className="sabka-colour">Sabka</span> Prayas.</p>
+
           <div className="d-flex">
-            <a href="#about" className="btn-get-started scrollto">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" className="glightbox btn-watch-video d-flex align-items-center"><i className="bi bi-play-circle" /><span>Watch Video</span></a>
+            <a href="#about" className="btn-get-started scrollto">Login</a>
+            <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" className="glightbox btn-watch-video d-flex align-items-center"><i className="bi bi-file-person" /><span>Sign Up</span></a>
           </div>
         </div>
       </section>
@@ -65,10 +68,7 @@ function About() {
         {/* ======= About Section ======= */}
         <section id="about" className="about">
           <div className="container" data-aos="fade-up">
-            <div className="section-header">
-              <h2>About Us</h2>
-              <p>Architecto nobis eos vel nam quidem vitae temporibus voluptates qui hic deserunt iusto omnis nam voluptas asperiores sequi tenetur dolores incidunt enim voluptatem magnam cumque fuga.</p>
-            </div>
+
             <div className="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay={200}>
               <div className="col-lg-5">
                 <div className="about-img">
@@ -76,12 +76,12 @@ function About() {
                 </div>
               </div>
               <div className="col-lg-7">
-                <h3 className="pt-0 pt-lg-5">Neque officiis dolore maiores et exercitationem quae est seda lidera pat claero</h3>
+                <h3 className="pt-0 pt-lg-5">The Khelo India programme has been introduced to revive the sports culture in India by building a strong framework for all sports played in our country .</h3>
                 {/* Tabs */}
                 <ul className="nav nav-pills mb-3">
-                  <li><a className="nav-link active" data-bs-toggle="pill" href="#tab1">Saepe fuga</a></li>
-                  <li><a className="nav-link" data-bs-toggle="pill" href="#tab2">Voluptates</a></li>
-                  <li><a className="nav-link" data-bs-toggle="pill" href="#tab3">Corrupti</a></li>
+                  <li><a className="nav-link active" data-bs-toggle="pill" href="#tab1">About us</a></li>
+                  <li><a className="nav-link" data-bs-toggle="pill" href="#tab2">Games</a></li>
+                  <li><a className="nav-link" data-bs-toggle="pill" href="#tab3">Pledge</a></li>
                 </ul>{/* End Tabs */}
                 {/* Tab Content */}
                 <div className="tab-content">
