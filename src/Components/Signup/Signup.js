@@ -1,94 +1,180 @@
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React from "react";
 import "./Signup.css";
+import { useEffect } from "react";
+import { useState } from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+// import axios from "axios";
+
+// const instance = axios.create({
+//   baseURL: "https://192.168.195.84:8000/api",
+// });
 
 function Signup() {
-  const [step, setStep] = useState(0);
-  const [email, setEmail] = useState("");
+  let navigate = useNavigate();
+
   const [name, setName] = useState("");
-  const [password, setPass] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [phone, setPhone] = useState("");
+  const [age, setAge] = useState("");
+  const [gender, setGender] = useState("M");
+  const [location, setLocation] = useState("");
+  const [aadhar, setAadhar] = useState("");
+  const [pan, setPan] = useState("");
 
-  // step_counter = 0;
-  function update_step() {
-    console.log(email);
-    console.log(name);
-    console.log(password);
-    next[0].submit();
-    setStep(step + 1);
-    console.log("Step updated");
-  }
-  function handleSubmit(e) {
-    e.preventDefault();
-  }
-  function updateEmail(e) {
-    setEmail("e.target.value");
-  }
-  function updateName(e) {
-    setName("e.target.value");
-  }
-  function updatePassword(e) {
-    setPass("e.target.value");
+  function selectNum() {
+    var strUser = document.getElementById("gender-select").value;
+    setGender(strUser);
   }
 
-  //SEND END AS THE LAST submit parameter
-  const next = [
-    {
-      type: "email",
-      text: "Email",
-      submit: updateEmail,
-    },
-    {
-      type: "text",
-      text: "Full Name",
-      submit: updateName,
-    },
-    {
-      type: "password",
-      text: "Password",
-      submit: updatePassword,
-    },
-  ];
+  function send() {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fullName: name,
+        loginEmail: email,
+        loginPass: password,
+        phoneNumber: phone,
+        age: age,
+        gender: gender,
+        location: location,
+        aadhar: aadhar,
+        pan: pan,
+      }),
+    };
+    fetch("http://192.168.195.84:8000/api/users/signup", requestOptions).then(
+      (response) => {
+        const resp = response.json();
+        console.log(resp);
+        navigate("/");
+      }
+    );
+  }
   return (
-    <div className="container">
-      <section>
-        <form onSubmit={handleSubmit}>
-          <Card
-            text={next[step]?.text}
-            type={next[step]?.type}
-            click={update_step}
-            submit={next[step]?.submit}
-          />
+    <div className="middle-con">
+      <div className="signup-contianer">
+        <form className="form-for-signup">
+          <div className="name-cont">
+            <span>Full Name</span>
+            <input
+              type="text"
+              name="name"
+              id="name-input"
+              autoComplete="off"
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+          <div className="pass-cont">
+            <span>Password</span>
+            <input
+              type="password"
+              name="pass"
+              id="pass-input"
+              autoComplete="off"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className="phone">
+            <span>Phone Number</span>
+            <input
+              type="phone"
+              name="phone"
+              id="phone-input"
+              autoComplete="off"
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
+          <div className="age">
+            <span>Age</span>
+            <input
+              type="text"
+              name="age"
+              id="age-input"
+              autoComplete="off"
+              onChange={(e) => setAge(e.target.value)}
+            />
+          </div>
+          <div className="gender">
+            <label for="gender"> Select you gender</label>
+            <select name="gender" id="gender-select" onChange={selectNum}>
+              <option value="none" selected>
+                Gender
+              </option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">other</option>
+            </select>
+          </div>
+          <div className="state">
+            <span>State</span>
+            <input
+              type="text"
+              name="state"
+              id="state-input"
+              autoComplete="off"
+              onChange={(e) => setLocation(e.target.value)}
+            />
+          </div>
+          <div className="org">
+            <span>Organisation Email</span>
+            <input
+              type="text"
+              name="org-name"
+              id="org-input"
+              autoComplete="off"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          <div className="docs">
+            <div className="aadhar">
+              <span>Aadhar Number</span>
+              <input
+                type="text"
+                name="aadhar"
+                id="aadhar-input"
+                autoComplete="off"
+                onChange={(e) => setAadhar(e.target.value)}
+              />
+            </div>
+            <div className="pan">
+              <span>Pan Number</span>
+              <input
+                type="text"
+                name="pan"
+                id="pan-input"
+                autoComplete="off"
+                onChange={(e) => setPan(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="pic-cont">
+            <div className="pic">
+              <label for="pic"> Upload your photo</label>
+              <input
+                type="file"
+                id="imageFile"
+                capture="user"
+                accept="image/*"
+                autoComplete="off"
+              />
+            </div>
+            <div className="a-img">
+              <label for="aadhar-image"> Upload your Aadhar Image</label>
+              <input
+                type="file"
+                id="aadharFile"
+                capture="user"
+                accept="image/*"
+                autoComplete="off"
+              />
+            </div>
+          </div>
+          <button onClick={send}>SignUp</button>
         </form>
-      </section>
+      </div>
     </div>
   );
 }
-export default Signup;
 
-function Card({ type, text, click, submit }) {
-  function clear() {
-    const inputEl = document.querySelector("input");
-    inputEl.value = ``;
-  }
-  function nextCard() {
-    click();
-    clear();
-  }
-  return (
-    <div>
-      <label>
-        <input
-          name="name"
-          id="card-input name"
-          type={type}
-          onChange={(e) => submit(e)}
-          required
-        />
-        <div className="label-text">{text}</div>
-      </label>
-      <button onClick={nextCard}>
-        <i className="fa-solid fa-angle-right" />
-      </button>
-    </div>
-  );
-}
+export default Signup;

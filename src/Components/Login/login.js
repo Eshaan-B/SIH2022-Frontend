@@ -1,85 +1,115 @@
-import React from "react";
-import "./login.css";
+import React, { useState } from "react";
 import { useEffect } from "react";
-
+import { Navigate, useNavigate } from "react-router-dom";
+import "./Login.css";
+import "animate.css";
 function Login() {
-  // const switchers = [...document.querySelectorAll(".switcher")];
+  const navigate = Navigate;
+  function send() {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        loginEmail: email,
+        loginPass: password,
+      }),
+    };
+    console.log(email, password);
+    fetch("http://192.168.195.84:8000/api/users/login", requestOptions).then(
+      (response) => {
+        const resp = response.json();
+        console.log(resp);
+        navigate("/");
+      }
+    );
+  }
 
-  useEffect(() => {
-    const loginEl = document.querySelector(".login-wrapper");
-    const signupEl = document.querySelector(".signup-wrapper");
-    const login_btn = document.querySelector(".switcher-login");
-    const signup_btn = document.querySelector(".switcher-signup");
+  const [step, setStep] = useState(0);
+  const [email, setEmail] = useState("");
+  const [password, setPass] = useState("");
 
-    login_btn.addEventListener("click", () => {
-      signupEl.classList.remove("is-active");
-      loginEl.classList.add("is-active");
-    });
-    signup_btn.addEventListener("click", () => {
-      loginEl.classList.remove("is-active");
-      signupEl.classList.add("is-active");
-    });
-  });
+  // step_counter = 0;
+  function update_step(data) {
+    if (step == 2) {
+      send();
+    }
+    console.log(email);
+    console.log(step);
+    console.log(password);
+    next[step].submit(data);
+    setStep(step + 1);
+    console.log("Step updated");
+  }
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
+  function updateEmail(data) {
+    setEmail(data);
+  }
+  function updatePassword(data) {
+    setPass(data);
+    console.log(password);
+  }
 
+  //SEND END AS THE LAST submit parameter
+  const next = [
+    {
+      type: "email",
+      text: "Email",
+      submit: updateEmail,
+    },
+    {
+      type: "password",
+      text: "Password",
+      submit: updatePassword,
+    },
+  ];
   return (
-    <section className="forms-section">
-      <div className="forms">
-        <div className="form-wrapper login-wrapper">
-          <button type="button" className="switcher switcher-login">
-            Login
-            <span className="underline" />
-          </button>
-          <form className="form form-login">
-            <fieldset>
-              <legend>Please, enter your email and password for login.</legend>
-              <div className="input-block">
-                <label htmlFor="login-email">E-mail</label>
-                <input id="login-email" type="email" required />
-              </div>
-              <div className="input-block">
-                <label htmlFor="login-password">Password</label>
-                <input id="login-password" type="password" required />
-              </div>
-            </fieldset>
-            <button type="submit" className="btn-login">
-              Login
-            </button>
-          </form>
-        </div>
-        <div className="form-wrapper is-active signup-wrapper">
-          <button type="button" className="switcher switcher-signup">
-            Sign Up
-            <span className="underline" />
-          </button>
-          <form className="form form-signup">
-            <fieldset>
-              <legend>
-                Please, enter your email, password and password confirmation for
-                sign up.
-              </legend>
-              <div className="input-block">
-                <label htmlFor="signup-email">E-mail</label>
-                <input id="signup-email" type="email" required />
-              </div>
-              <div className="input-block">
-                <label htmlFor="signup-password">Password</label>
-                <input id="signup-password" type="password" required />
-              </div>
-              <div className="input-block">
-                <label htmlFor="signup-password-confirm">
-                  Confirm password
-                </label>
-                <input id="signup-password-confirm" type="password" required />
-              </div>
-            </fieldset>
-            <button type="submit" className="btn-signup">
-              Continue
-            </button>
-          </form>
-        </div>
-      </div>
-    </section>
+    <div className="login-container">
+      <section>
+        <form onSubmit={handleSubmit} className="login-form">
+          <Card
+            text={next[step]?.text}
+            type={next[step]?.type}
+            click={update_step}
+            submit={next[step]?.submit}
+          />
+        </form>
+      </section>
+    </div>
   );
 }
-
 export default Login;
+
+function Card({ type, text, click, submit }) {
+  const [data, setData] = useState("");
+
+  function clear() {
+    const inputEl = document.querySelector("input");
+    inputEl.value = ``;
+  }
+  function nextCard() {
+    console.log(data);
+    click(data);
+    clear();
+  }
+  return (
+    <div>
+      <label className="label-name">
+        <input
+          name="name"
+          id="card-input name"
+          type={type}
+          onChange={(e) => setData(e.target.value)}
+          required
+          className="input-login"
+          autoComplete="off"
+        />
+        <div className="label-text">{text}</div>
+      </label>
+      <button onClick={nextCard} className="btn-for-next">
+        <i className="fa-solid fa-angle-right" />
+      </button>
+    </div>
+  );
+}
