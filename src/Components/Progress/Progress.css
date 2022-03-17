@@ -1,0 +1,310 @@
+$circleRadius: 70px;
+$lineBarHeight: 20px;
+$mobileRatio: 1.2;
+$gap: 20px;
+@import url("https://fonts.googleapis.com/css?family=Lato:400,900&display=swap");
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.progressbar__wrapper {
+  margin: 100px auto 100px;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+
+  @media (min-width: 480px) {
+    width: 80%;
+  }
+
+  h1 {
+    margin-bottom: 150px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  & > a {
+    position: absolute;
+    top: $circleRadius + 10px;
+    right: 20px;
+    font-size: 12px;
+  }
+}
+
+.progressbar {
+  margin: 0 20px;
+  background-color: #421f77;
+  border-radius: 15px;
+  margin: 0 auto;
+  padding: 0;
+  font-size: 16px;
+  border-radius: 20px;
+  height: $lineBarHeight / $mobileRatio;
+  font-size: 0;
+  border: 6px / $mobileRatio solid #421f77;
+
+  @media (min-width: 768px) {
+    height: $lineBarHeight;
+    border: 6px solid #421f77;
+  }
+
+  li {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    width: 22%;
+    height: 100%;
+    color: #c7cbdb;
+
+    &:first-child {
+      &::before {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+    }
+
+    &:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    &::before {
+      transition: width 0.5s ease-in-out;
+    }
+    .progressbar__circle {
+      transition-property: border-color, background-color;
+    }
+  }
+
+  &__circle {
+    height: $circleRadius / $mobileRatio;
+    width: $circleRadius / $mobileRatio;
+    bottom: ($circleRadius / $mobileRatio - $lineBarHeight / $mobileRatio) * -1 /
+      2;
+    position: absolute;
+    background-color: #421f77;
+    border-radius: 100%;
+    border: 4px solid;
+    border-color: #421f77;
+    right: -2px;
+    z-index: 1;
+
+    @media (min-width: 768px) {
+      height: $circleRadius;
+      width: $circleRadius;
+      bottom: ($circleRadius - $lineBarHeight) * -1 / 2;
+    }
+
+    span {
+      left: 0;
+      right: 0;
+      position: absolute;
+      color: #333;
+      font-size: 16px;
+      font-family: "Lato", sans-serif;
+      font-weight: 900;
+
+      &.bottom {
+        bottom: $lineBarHeight * -1 - $gap;
+      }
+    }
+  }
+}
+
+$startClr: rgba(254, 3, 104, 1);
+$finalClr: rgba(103, 3, 255, 1);
+$numberOfCircles: 4;
+$bgStepClr1: linear-gradient(
+  109.2deg,
+  lighten($finalClr, 25%) 9.3%,
+  lighten($finalClr, 20%) 89.5%
+);
+$bgStepClr2: linear-gradient(
+  109.2deg,
+  lighten($finalClr, 20%) 9.3%,
+  lighten($finalClr, 15%) 89.5%
+);
+$bgStepClr3: linear-gradient(
+  109.2deg,
+  lighten($finalClr, 15%) 9.3%,
+  lighten($finalClr, 10%) 89.5%
+);
+$bgStepClr4: linear-gradient(
+  109.2deg,
+  lighten($finalClr, 10%) 9.3%,
+  lighten($finalClr, 5%) 89.5%
+);
+
+%activate-progressbar {
+  .progressbar__circle {
+    transition-property: border-color, background-color;
+    svg {
+      color: #fff;
+    }
+
+    .bottom {
+      transition: color 0.5s ease-in-out;
+    }
+  }
+
+  &:first-child {
+    &::before {
+      background-image: $bgStepClr1;
+    }
+
+    .progressbar__circle {
+      background-color: lighten($finalClr, 20%);
+
+      .bottom {
+        color: lighten($finalClr, 22%);
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    &::before {
+      background-image: $bgStepClr2;
+    }
+
+    .progressbar__circle {
+      background-color: lighten($finalClr, 15%);
+
+      .bottom {
+        color: lighten($finalClr, 15%);
+      }
+    }
+  }
+
+  &:nth-child(3) {
+    &::before {
+      background-image: $bgStepClr3;
+    }
+
+    .progressbar__circle {
+      background-color: lighten($finalClr, 10%);
+
+      .bottom {
+        color: lighten($finalClr, 10%);
+      }
+    }
+  }
+
+  &:nth-child(4) {
+    &::before {
+      background-image: $bgStepClr4;
+    }
+
+    .progressbar__circle {
+      background-color: lighten($finalClr, 5%);
+
+      .bottom {
+        color: lighten($finalClr, 5%);
+      }
+    }
+  }
+
+  &::before {
+    width: 99%;
+    transition: width 0.5s ease-in-out;
+  }
+  &::after {
+    width: 100%;
+    transition: width 0.5s ease-in-out;
+  }
+
+  .progressbar__circle {
+    animation: bounce 0.5s ease-in-out;
+  }
+
+  @for $i from 0 through $numberOfCircles {
+    &:nth-child(#{$i + 1}) {
+      .progressbar__circle {
+        transition-delay: (#{$i + 1.5}) s;
+        animation: bounce 0.5s ease-in-out (#{$i + 1.5}) s;
+
+        svg {
+          transition-delay: (#{$i + 1.5}) s;
+        }
+
+        span {
+          transition-delay: (#{$i + 1.5}) s;
+        }
+      }
+
+      &::after {
+        width: 55%;
+        transition-delay: (#{$i + 2}) s;
+      }
+
+      &::before {
+        transition-delay: (#{$i + 1}) s;
+      }
+    }
+  }
+}
+
+.progressbar {
+  &.active {
+    li {
+      @extend %activate-progressbar;
+    }
+  }
+
+  li {
+    .progressbar__circle {
+      svg {
+        color: #e5e6ea;
+        transition: color ease-in;
+        position: relative;
+        font-size: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 100%;
+    }
+
+    &:last-child {
+      &::after {
+        content: "";
+        position: absolute;
+        display: block;
+        width: 0px;
+        left: 100%;
+        top: 0;
+        bottom: 0;
+        background-color: lighten($finalClr, 5%);
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+      }
+    }
+  }
+}
+
+@keyframes bounce {
+  0% {
+    transform: scale(1);
+  }
+
+  33% {
+    transform: scale(0.9);
+  }
+
+  66% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
