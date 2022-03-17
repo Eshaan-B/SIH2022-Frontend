@@ -72,7 +72,7 @@ function About() {
             <div className="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay={200}>
               <div className="col-lg-5">
                 <div className="about-img">
-                  <img src="assets/img/about.jpg" className="img-fluid" alt="" />
+                  <img src="assets/img/ball-sport.gif" className="img-fluid" alt="ball-sport" />
                 </div>
               </div>
               <div className="col-lg-7">
@@ -86,28 +86,71 @@ function About() {
                 {/* Tab Content */}
                 <div className="tab-content">
                   <div className="tab-pane fade show active" id="tab1">
-                    <p className="fst-italic">Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo suscipit voluptatem.</p>
+                    <p className="fst-italic">The importance of sports and fitness in one’s life is invaluable. Playing sports inculcates team spirit, develops strategic & analytical thinking, leadership skills, goal setting and risk taking. A fit and healthy individual leads to an equally healthy society and strong nation.</p>
+
+                    <p>Sports is an extremely important component for the overall development of our nation. India, in the last few years has made steady progress in the field of sports. This tremendous potential needs to be showcased at a global platform. It’s time we inspire young talent, give them top-notch infrastructure and training of the highest level. We need to inculcate a strong spirit of participation in sports that enables players to demonstrate their true potential. Only then can India realise its dream of becoming a sports super power.</p>
+  
+                    <p>The Khelo India programme has been introduced to revive the sports culture in India at the grass-root level by building a strong framework for all sports played in our country and establish India as a great sporting nation.</p>
+
+                    <p>To accomplish the above objectives, Khelo India programme has been divided into 12 verticals, namely:</p>
                     <div className="d-flex align-items-center mt-4">
                       <i className="bi bi-check2" />
-                      <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
+                      <h4>Play Field Development</h4>
                     </div>
-                    <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum non eveniet magni quaerat nemo et.</p>
                     <div className="d-flex align-items-center mt-4">
                       <i className="bi bi-check2" />
-                      <h4>Incidunt non veritatis illum ea ut nisi</h4>
+                      <h4>Community Coaching Development</h4>
                     </div>
-                    <p>Non quod totam minus repellendus autem sint velit. Rerum debitis facere soluta tenetur. Iure molestiae assumenda sunt qui inventore eligendi voluptates nisi at. Dolorem quo tempora. Quia et perferendis.</p>
                     <div className="d-flex align-items-center mt-4">
                       <i className="bi bi-check2" />
-                      <h4>Omnis ab quia nemo dignissimos rem eum quos..</h4>
+                      <h4>State level Khelo India</h4>
                     </div>
-                    <p>Eius alias aut cupiditate. Dolor voluptates animi ut blanditiis quos nam. Magnam officia aut ut alias quo explicabo ullam esse. Sunt magnam et dolorem eaque magnam odit enim quaerat. Vero error error voluptatem eum.</p>
+                    <div className="d-flex align-items-center mt-4">
+                      <i className="bi bi-check2" />
+                      <h4>Annual Sports competition</h4>
+                    </div>
+                    <div className="d-flex align-items-center mt-4">
+                      <i className="bi bi-check2" />
+                      <h4>Talent Search and Development</h4>
+                    </div>
+                    <div className="d-flex align-items-center mt-4">
+                      <i className="bi bi-check2" />
+                      <h4>Support to National/Regional/State Sports Academics</h4>
+                    </div>
+                    <div className="d-flex align-items-center mt-4">
+                      <i className="bi bi-check2" />
+                      <h4>Physical Fitness of School Children</h4>
+                    </div>
+                    <div className="d-flex align-items-center mt-4">
+                      <i className="bi bi-check2" />
+                      <h4>Sports For Women</h4>
+                    </div>
+                    <div className="d-flex align-items-center mt-4">
+                      <i className="bi bi-check2" />
+                      <h4>Promotion of Sports amoungst people with disabilities</h4>
+                    </div>
+                    <div className="d-flex align-items-center mt-4">
+                      <i className="bi bi-check2" />
+                      <h4>Sports for Peace and Development</h4>
+                    </div>
+                    <div className="d-flex align-items-center mt-4">
+                      <i className="bi bi-check2" />
+                      <h4>Promotionof rural and indegeneous/tribal games</h4>
+                    </div>
+
+                    <br></br>
+                    <p>Talented players identified in priority sports disciplines at various levels by the High-Powered Committee will be provided annual financial assistance of INR 5 lakh per annum for 8 years.</p>
+                    <p>Khelo India School Games, which are a part of the Khelo India programme, are being held from 31st January to 8th February, 2018 in New Delhi. Under-17 athletes have been invited to participate across 16 disciplines, which are as follows: Archery, Athletics, Badminton, Basketball, Boxing, Football, Gymnastics, Hockey, Judo, Kabaddi, Kho-Kho, Shooting, Swimming, Volleyball, Weightlifting, and Wrestling.</p>
+                    <p>Join us and support the Khelo India initiative to transform India into a global sporting powerhouse in the upcoming years.</p>
+
+
+
                   </div>{/* End Tab 1 Content */}
                   <div className="tab-pane fade show" id="tab2">
                     <p className="fst-italic">Consequuntur inventore voluptates consequatur aut vel et. Eos doloribus expedita. Sapiente atque consequatur minima nihil quae aspernatur quo suscipit voluptatem.</p>
                     <div className="d-flex align-items-center mt-4">
                       <i className="bi bi-check2" />
-                      <h4>Repudiandae rerum velit modi et officia quasi facilis</h4>
+                      <h4>Repudianda rerum velit modi et officia quasi facilis</h4>
                     </div>
                     <p>Laborum omnis voluptates voluptas qui sit aliquam blanditiis. Sapiente minima commodi dolorum non eveniet magni quaerat nemo et.</p>
                     <div className="d-flex align-items-center mt-4">
