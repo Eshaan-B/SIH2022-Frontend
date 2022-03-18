@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import "./login.css";
+import "./Login.css";
 import "animate.css";
 function Login() {
   const navigate = Navigate;
