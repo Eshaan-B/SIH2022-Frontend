@@ -1,10 +1,11 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./Components/About/about";
-import Login from "./Components/Login/login";
+import Login from "./Components/Login/Login";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Progress from "./Components/Progress/progress";
 import Signup from "./Components/Signup/Signup";
+import Tracker from "./Components/Tracker/Tracker";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/profile" element={<Dashboard />} />
           <Route path="/progress" element={<Progress />} />
+          <Route path="/new" element={<Tracker />} />
         </Routes>
       </div>
     </BrowserRouter>
