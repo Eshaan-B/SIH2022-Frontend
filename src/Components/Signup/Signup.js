@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Webcam from "react-webcam";
 
 // const instance = axios.create({
 //   baseURL: "https://192.168.195.84:8000/api",
@@ -189,6 +190,8 @@ function Signup() {
             SignUp
           </button>
         </form>
+
+        <Webcam />
       </div>
     </div>
   );
