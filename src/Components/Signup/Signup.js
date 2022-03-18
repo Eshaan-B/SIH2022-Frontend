@@ -143,7 +143,7 @@ function Signup() {
               />
             </div>
             <div className="govt-body">
-              <span>Aadhar Number</span>
+              <span>Government Body</span>
               <input
                 type="text"
                 name="govt-body"
@@ -185,7 +185,9 @@ function Signup() {
               />
             </div>
           </div>
-          <button onClick={send}>SignUp</button>
+          <button onClick={send} className="sign-btn">
+            SignUp
+          </button>
         </form>
       </div>
     </div>

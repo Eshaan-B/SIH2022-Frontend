@@ -17,7 +17,7 @@ function About() {
               Khelo India<span>.</span>
             </h1>
           </a>
-          <a className="btn-getstarted scrollto" href="index.html#about">
+          <a className="btn-getstarted scrollto" href="/login">
             Login
           </a>
         </div>
@@ -68,7 +68,7 @@ function About() {
       </section>
       <main id="main">
         {/* ======= Featured Services Section ======= */}
-        <section id="featured-services" className="featured-services">
+        {/* <section id="featured-services" className="featured-services">
           <div className="container">
             <div className="row gy-4">
               <div className="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
@@ -88,7 +88,7 @@ function About() {
                 </div>
               </div>
               {/* End Service Item */}
-              <div
+        {/* <div
                 className="col-xl-3 col-md-6 d-flex"
                 data-aos="zoom-out"
                 data-aos-delay={200}
@@ -107,9 +107,9 @@ function About() {
                     esse cillum dolore
                   </p>
                 </div>
-              </div>
-              {/* End Service Item */}
-              <div
+              </div> */}
+        {/* End Service Item */}
+        {/* <div
                 className="col-xl-3 col-md-6 d-flex"
                 data-aos="zoom-out"
                 data-aos-delay={400}
@@ -128,9 +128,9 @@ function About() {
                     culpa qui officia
                   </p>
                 </div>
-              </div>
-              {/* End Service Item */}
-              <div
+              </div> */}
+        {/* End Service Item */}
+        {/* <div
                 className="col-xl-3 col-md-6 d-flex"
                 data-aos="zoom-out"
                 data-aos-delay={600}
@@ -151,9 +151,9 @@ function About() {
                 </div>
               </div>
               {/* End Service Item */}
-            </div>
-          </div>
-        </section>
+        {/* </div> */}
+        {/* </div> */}
+        {/* </section> */}
         {/* End Featured Services Section */}
         {/* ======= About Section ======= */}
         <section id="about" className="about">
@@ -192,11 +192,6 @@ function About() {
                   <li>
                     <a className="nav-link" data-bs-toggle="pill" href="#tab2">
                       Games
-                    </a>
-                  </li>
-                  <li>
-                    <a className="nav-link" data-bs-toggle="pill" href="#tab3">
-                      Pledge
                     </a>
                   </li>
                 </ul>
@@ -311,83 +306,32 @@ function About() {
                   </div>
                   {/* End Tab 1 Content */}
                   <div className="tab-pane fade show" id="tab2">
-                    <p className="fst-italic">
-                      Consequuntur inventore voluptates consequatur aut vel et.
-                      Eos doloribus expedita. Sapiente atque consequatur minima
-                      nihil quae aspernatur quo suscipit voluptatem.
-                    </p>
                     <div className="d-flex align-items-center mt-4">
                       <i className="bi bi-check2" />
                       <h4>
-                        Repudianda rerum velit modi et officia quasi facilis
+                        <a href="https://universitygames.kheloindia.gov.in/">
+                          1st Khelo India University Games, Odisha - 2020
+                        </a>
                       </h4>
                     </div>
-                    <p>
-                      Laborum omnis voluptates voluptas qui sit aliquam
-                      blanditiis. Sapiente minima commodi dolorum non eveniet
-                      magni quaerat nemo et.
-                    </p>
                     <div className="d-flex align-items-center mt-4">
                       <i className="bi bi-check2" />
-                      <h4>Incidunt non veritatis illum ea ut nisi</h4>
+                      <h4>
+                        <a href="https://youthgames.kheloindia.gov.in/">
+                          Khelo India Youth Games, Pune, Maharashtra
+                        </a>
+                      </h4>
                     </div>
-                    <p>
-                      Non quod totam minus repellendus autem sint velit. Rerum
-                      debitis facere soluta tenetur. Iure molestiae assumenda
-                      sunt qui inventore eligendi voluptates nisi at. Dolorem
-                      quo tempora. Quia et perferendis.
-                    </p>
                     <div className="d-flex align-items-center mt-4">
                       <i className="bi bi-check2" />
-                      <h4>Omnis ab quia nemo dignissimos rem eum quos..</h4>
+                      <h4>
+                        <a href="https://schoolgames.kheloindia.gov.in/">
+                          Khelo India School Games, Delhi-2018
+                        </a>
+                      </h4>
                     </div>
-                    <p>
-                      Eius alias aut cupiditate. Dolor voluptates animi ut
-                      blanditiis quos nam. Magnam officia aut ut alias quo
-                      explicabo ullam esse. Sunt magnam et dolorem eaque magnam
-                      odit enim quaerat. Vero error error voluptatem eum.
-                    </p>
                   </div>
                   {/* End Tab 2 Content */}
-                  <div className="tab-pane fade show" id="tab3">
-                    <p className="fst-italic">
-                      Consequuntur inventore voluptates consequatur aut vel et.
-                      Eos doloribus expedita. Sapiente atque consequatur minima
-                      nihil quae aspernatur quo suscipit voluptatem.
-                    </p>
-                    <div className="d-flex align-items-center mt-4">
-                      <i className="bi bi-check2" />
-                      <h4>
-                        Repudiandae rerum velit modi et officia quasi facilis
-                      </h4>
-                    </div>
-                    <p>
-                      Laborum omnis voluptates voluptas qui sit aliquam
-                      blanditiis. Sapiente minima commodi dolorum non eveniet
-                      magni quaerat nemo et.
-                    </p>
-                    <div className="d-flex align-items-center mt-4">
-                      <i className="bi bi-check2" />
-                      <h4>Incidunt non veritatis illum ea ut nisi</h4>
-                    </div>
-                    <p>
-                      Non quod totam minus repellendus autem sint velit. Rerum
-                      debitis facere soluta tenetur. Iure molestiae assumenda
-                      sunt qui inventore eligendi voluptates nisi at. Dolorem
-                      quo tempora. Quia et perferendis.
-                    </p>
-                    <div className="d-flex align-items-center mt-4">
-                      <i className="bi bi-check2" />
-                      <h4>Omnis ab quia nemo dignissimos rem eum quos..</h4>
-                    </div>
-                    <p>
-                      Eius alias aut cupiditate. Dolor voluptates animi ut
-                      blanditiis quos nam. Magnam officia aut ut alias quo
-                      explicabo ullam esse. Sunt magnam et dolorem eaque magnam
-                      odit enim quaerat. Vero error error voluptatem eum.
-                    </p>
-                  </div>
-                  {/* End Tab 3 Content */}
                 </div>
               </div>
             </div>

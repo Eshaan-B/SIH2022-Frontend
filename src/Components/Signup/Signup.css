@@ -12,15 +12,19 @@
   justify-content: center;
   /* max-height: 50vh; */
   min-height: 100vh;
-  background-color: #90caf9;
+  /* background-color: #90caf9;  */
 }
 .form-for-signup {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 .name-cont {
   display: flex;
   flex-direction: column;
+  /* align-items: flex-start;
+  justify-content: center; */
 }
 .name-cont > input {
   /* border-radius: 20px; */
@@ -33,6 +37,25 @@
   color: black;
   font-family: inherit;
   outline: none;
+  width: 400px;
+}
+.govt-body {
+  display: flex;
+  flex-direction: column;
+}
+.govt-body > input {
+  position: relative;
+  /* border-radius: 20px; */
+  border: none;
+  background-color: #eeeeee;
+  /* border-bottom: 1px solid blue; */
+  padding: 10px;
+  margin: 10px;
+  border-radius: 12px;
+  color: black;
+  font-family: inherit;
+  outline: none;
+  left: 10px;
 }
 .pass-cont {
   display: flex;
@@ -49,6 +72,7 @@
   color: black;
   font-family: inherit;
   outline: none;
+  width: 400px;
 }
 .phone {
   display: flex;
@@ -65,6 +89,7 @@
   color: black;
   font-family: inherit;
   outline: none;
+  width: 400px;
 }
 .email {
   display: flex;
@@ -81,6 +106,7 @@
   color: black;
   font-family: inherit;
   outline: none;
+  width: 400px;
 }
 .age {
   display: flex;
@@ -97,6 +123,7 @@
   color: black;
   font-family: inherit;
   outline: none;
+  width: 400px;
 }
 .gender {
   display: flex;
@@ -113,6 +140,7 @@
   color: black;
   font-family: inherit;
   outline: none;
+  width: 400px;
 }
 .state {
   display: flex;
@@ -129,6 +157,7 @@
   color: black;
   font-family: inherit;
   outline: none;
+  width: 400px;
 }
 .org {
   display: flex;
@@ -145,6 +174,7 @@
   color: black;
   font-family: inherit;
   outline: none;
+  width: 400px;
 }
 .aadhar {
   display: flex;
@@ -222,3 +252,51 @@
   align-items: center;
   justify-content: space-between;
 }
+.sign-btn {
+  border-radius: 12px;
+  padding: 10px;
+  width: 100px;
+}
+
+.state > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.name-cont > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.pass-cont > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.phone > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.age > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.gender > select:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.state > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.org > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.aadhar > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.govt-body > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.pan > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.a-img > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+.pic > input:hover {
+  border-bottom: 1.5px solid #0ea2bd;
+}
+/* .sign-btn:hover {
+  background-color: green;
+} */
