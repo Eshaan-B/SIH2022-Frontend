@@ -1,7 +1,7 @@
 import React from "react";
 import "./Signup.css";
 import { useEffect } from "react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Webcam from "react-webcam";
@@ -11,6 +11,7 @@ import Webcam from "react-webcam";
 // });
 
 function Signup() {
+  const webRef = useRef(null);
   let navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -23,10 +24,16 @@ function Signup() {
   const [aadhar, setAadhar] = useState("");
   const [pan, setPan] = useState("");
   const [govtBody, setgovtBody] = useState("");
+  const [img, setImg] = useState(null);
 
   function selectNum() {
     var strUser = document.getElementById("gender-select").value;
     setGender(strUser);
+  }
+
+  function capture() {
+    setImg(webRef.current.getScreenshot());
+    // console.log(webRef.current.getScreenshot());
   }
 
   function send() {
@@ -191,7 +198,10 @@ function Signup() {
           </button>
         </form>
 
-        <Webcam />
+        <Webcam ref={webRef} />
+        <button onClick={capture}>Capture</button>
+
+        {img ? <img src={img} alt="img" /> : <div>No image</div>}
       </div>
     </div>
   );
