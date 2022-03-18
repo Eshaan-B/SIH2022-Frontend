@@ -3,7 +3,7 @@ import "./Signup.css";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-// import axios from "axios";
+import axios from "axios";
 
 // const instance = axios.create({
 //   baseURL: "https://192.168.195.84:8000/api",
@@ -21,6 +21,7 @@ function Signup() {
   const [location, setLocation] = useState("");
   const [aadhar, setAadhar] = useState("");
   const [pan, setPan] = useState("");
+  const [govtBody, setgovtBody] = useState("");
 
   function selectNum() {
     var strUser = document.getElementById("gender-select").value;
@@ -41,15 +42,19 @@ function Signup() {
         location: location,
         aadhar: aadhar,
         pan: pan,
+        govtBody: govtBody,
       }),
     };
-    fetch("http://192.168.195.84:8000/api/users/signup", requestOptions).then(
-      (response) => {
-        const resp = response.json();
-        console.log(resp);
-        navigate("/");
-      }
-    );
+    // fetch("http://192.168.195.84:8000/api/users/signup", requestOptions).then(
+    //   (response) => {
+    //     const resp = response.json();
+    //     console.log(resp);
+    //     navigate("/");
+    //   }
+    // );
+    axios
+      .post("http://192.168.195.84:8000/api/users/signup", requestOptions)
+      .then((response) => console.log(response.data));
   }
   return (
     <div className="middle-con">
@@ -135,6 +140,16 @@ function Signup() {
                 id="aadhar-input"
                 autoComplete="off"
                 onChange={(e) => setAadhar(e.target.value)}
+              />
+            </div>
+            <div className="govt-body">
+              <span>Aadhar Number</span>
+              <input
+                type="text"
+                name="govt-body"
+                id="govt-body-input"
+                autoComplete="off"
+                onChange={(e) => setgovtBody(e.target.value)}
               />
             </div>
             <div className="pan">
