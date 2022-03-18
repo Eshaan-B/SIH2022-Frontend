@@ -11,7 +11,6 @@ import Webcam from "react-webcam";
 // });
 
 function Signup() {
-  const webRef = useRef(null);
   let navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -24,16 +23,10 @@ function Signup() {
   const [aadhar, setAadhar] = useState("");
   const [pan, setPan] = useState("");
   const [govtBody, setgovtBody] = useState("");
-  const [img, setImg] = useState(null);
 
   function selectNum() {
     var strUser = document.getElementById("gender-select").value;
     setGender(strUser);
-  }
-
-  function capture() {
-    setImg(webRef.current.getScreenshot());
-    // console.log(webRef.current.getScreenshot());
   }
 
   function send() {
@@ -67,7 +60,7 @@ function Signup() {
   return (
     <div className="middle-con">
       <div className="signup-contianer">
-        <form className="form-for-signup">
+        <form className="form-for-signup" onSubmit={(e) => e.preventDefault()}>
           <div className="name-cont">
             <span>Full Name</span>
             <input
@@ -173,14 +166,17 @@ function Signup() {
           </div>
           <div className="pic-cont">
             <div className="pic">
-              <label for="pic"> Upload your photo</label>
-              <input
+              <label> Upload your photo</label>
+              {/* <input
                 type="file"
                 id="imageFile"
                 capture="user"
                 accept="image/*"
                 autoComplete="off"
-              />
+              />  */}
+              <button>
+                <i className="fa-solid fa-camera" />
+              </button>
             </div>
             <div className="a-img">
               <label for="aadhar-image"> Upload your Aadhar Image</label>
@@ -197,14 +193,32 @@ function Signup() {
             SignUp
           </button>
         </form>
-
-        <Webcam ref={webRef} />
-        <button onClick={capture}>Capture</button>
-
-        {img ? <img src={img} alt="img" /> : <div>No image</div>}
+        {/* <div className="camera-inp">{showImage ? <WEBCAMERA /> : ""}</div> */}
       </div>
     </div>
   );
 }
 
 export default Signup;
+
+// function WEBCAMERA() {
+//   function capture() {
+//     setImg(webRef.current.getScreenshot());
+//     // console.log(webRef.current.getScreenshot());
+//   }
+
+//   function showImg() {
+//     setShowImage(!showImage);
+//   }
+//   const [showImage, setShowImage] = useState(false);
+//   const webRef = useRef(null);
+//   const [img, setImg] = useState(null);
+//   return (
+//     <div>
+//       <Webcam ref={webRef} />
+//       <button onClick={capture}>Capture</button>
+
+//       {img ? <img src={img} alt="img" /> : <div>No image</div>}
+//     </div>
+//   );
+// }

@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./Components/About/about";
-import Login from "./Components/Login/Login";
+import Login from "./Components/Login/login";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import Progress from "./Components/Progress/progress";
 import Signup from "./Components/Signup/Signup";
