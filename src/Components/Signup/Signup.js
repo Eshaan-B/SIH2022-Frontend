@@ -2,16 +2,16 @@ import React from "react";
 import "./Signup.css";
 import { useEffect } from "react";
 import { useState, useRef } from "react";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Webcam from "react-webcam";
 
-// const instance = axios.create({
-//   baseURL: "https://192.168.195.84:8000/api",
-// });
-
 function Signup() {
   let navigate = useNavigate();
+  function showImg() {
+    setShowImage(!showImage);
+  }
+  const [showImage, setShowImage] = useState(false);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -55,7 +55,8 @@ function Signup() {
     // );
     axios
       .post("http://192.168.195.84:8000/api/users/signup", requestOptions)
-      .then((response) => console.log(response.data));
+      .then((response) => console.log(response.data))
+      .then(navigate("/"));
   }
   return (
     <div className="middle-con">
@@ -174,7 +175,7 @@ function Signup() {
                 accept="image/*"
                 autoComplete="off"
               />  */}
-              <button>
+              <button onClick={showImg}>
                 <i className="fa-solid fa-camera" />
               </button>
             </div>
@@ -193,7 +194,9 @@ function Signup() {
             SignUp
           </button>
         </form>
-        {/* <div className="camera-inp">{showImage ? <WEBCAMERA /> : ""}</div> */}
+        <div className="camera-inp">
+          {showImage ? <WEBCAMERA hide={showImg} /> : ""}
+        </div>
       </div>
     </div>
   );
@@ -201,24 +204,22 @@ function Signup() {
 
 export default Signup;
 
-// function WEBCAMERA() {
-//   function capture() {
-//     setImg(webRef.current.getScreenshot());
-//     // console.log(webRef.current.getScreenshot());
-//   }
+function WEBCAMERA({ hide }) {
+  const videoConstraints = {
+    facingMode: "user",
+  };
+  function capture() {
+    hide();
+    setImg(webRef.current.getScreenshot());
+    // console.log(webRef.current.getScreenshot());
+  }
 
-//   function showImg() {
-//     setShowImage(!showImage);
-//   }
-//   const [showImage, setShowImage] = useState(false);
-//   const webRef = useRef(null);
-//   const [img, setImg] = useState(null);
-//   return (
-//     <div>
-//       <Webcam ref={webRef} />
-//       <button onClick={capture}>Capture</button>
-
-//       {img ? <img src={img} alt="img" /> : <div>No image</div>}
-//     </div>
-//   );
-// }
+  const webRef = useRef(null);
+  const [img, setImg] = useState(null);
+  return (
+    <div className="webcam">
+      <Webcam ref={webRef} height={300} width={600} />
+      <button onClick={capture}>Capture</button>
+    </div>
+  );
+}
